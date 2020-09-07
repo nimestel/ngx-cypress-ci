@@ -27,12 +27,12 @@
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "delete:reports": "rm cypress/results/* || true",
+    "delete:reports": "rm -rf cypress/results/* || true",
     "prereport": "npm run delete:reports",
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
     "junit:merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
-    "cypress:run": "npx cypress run",
-    "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run"
+    "cypress:run": "npm run prereport && npx cypress run",
+    "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run; npm run junit:merge; npm run mochawesome:merge"
   },
   "dependencies": {
     "@agm/core": "^1.1.0",
