@@ -3,13 +3,13 @@
   "ignoreTestFiles": "**/skip/*",
   "viewportHeight": 1080,
   "viewportWidth": 1920,
-  "video": false,
+  "video": true,
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "configFile": "reporter-config.json"
   },
-  "env":
-  {
+  "env": {
     "RETRIES": 2
-  }
+  },
+  "projectId": "nvtx2n"
 }

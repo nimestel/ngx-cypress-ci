@@ -31,7 +31,7 @@
     "prereport": "npm run delete:reports",
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
     "junit:merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
-    "cypress:run": "npm run prereport && npx cypress run",
+    "cypress:run": "npm run prereport && npx cypress run --record --key bec8b8c9-2af5-4446-959c-eef3ad557941",
     "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run; npm run junit:merge; npm run mochawesome:merge"
   },
   "dependencies": {
